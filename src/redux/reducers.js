@@ -15,7 +15,8 @@ import {
 } from '../constants.js'
 
 const auth = (state = {
-    name: 'unnamed player'
+    displayName: 'unnamed player',
+    message: ''
 }, action) => {
     switch(action.type) {
         case LOGIN_REQUEST:
@@ -32,12 +33,17 @@ const auth = (state = {
             });
         case LOGIN_SUCCESS:
         case UPDATE_PROFILE_SUCCESS:
-            const obj = Object.assign({}, state, {
+            const out = Object.assign({}, state, {
                 reqStatus: AUTH_REQUEST_SUCCESS,
                 uid: action.user.uid,
-                name: action.user.displayName
             });
-            return obj;
+
+            // displayname can be null from the remote, to preserve the default
+            // we have to assign it explicitly (no destructure or Object.assign)
+            if(action.user.displayName) {
+                out.displayName = action.user.displayName;
+            }
+            return out;
         default:
             return state;
     }

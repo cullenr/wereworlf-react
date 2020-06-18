@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 
 import { useSelector, connect } from "react-redux";
-
+import ProfileForm from './components/ProfileForm';
 export default function App() {
   return (
     <Router>
@@ -99,27 +99,8 @@ function Options() {
     );
 }
 
-function ProfileForm() {
-    // get the whole object as we will use the reqStatus and message if 
-    // anything goes wrong
-    const data = useSelector(state => state.auth);
-
-    // get the new value from the submit 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newName = e.target.elements.displayName;
-        if(name != newName) {
-            updateProfile(newName);
-        }
-    }
-    return <form onSubmit={}>
-        <h3>Name yourself</h3>
-        <input type="text" value={name} name="displayName"></input>
-    <div>;
-}
 
 function Lobby({uid}) {
-    console.log('LOBBY');
     return <h2>Lobby { uid }</h2>;
 }
 const ConnectedLobby = connect(state => ({uid : state.auth.uid}))(Lobby)
