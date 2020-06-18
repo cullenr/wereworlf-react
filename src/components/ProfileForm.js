@@ -16,7 +16,7 @@ export default function ProfileForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newName = e.target.elements.displayName.value;
-        if(data.name != newName) {
+        if(data.name !== newName) {
             dispatch(updateProfile(newName));
         }
     };
