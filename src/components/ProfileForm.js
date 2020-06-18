@@ -21,7 +21,7 @@ export default function ProfileForm() {
         }
     };
     return (<form  onSubmit={handleSubmit}>
-        <h3>Name yourself, {data.displaName}</h3>
+        <h3>Name yourself</h3>
         <fieldset disabled={data.reqStatus === AUTH_REQUEST_PENDING}>
             <input type='text' placeholder={data.displayName} name='displayName' />
             <input type='submit' />
