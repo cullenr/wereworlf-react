@@ -29,6 +29,8 @@ const store = createStore(
   applyMiddleware(thunkMiddleware, createLogger())
 )
 
+// wait for the user to log in before doing anything - for now we have automatic
+// login to an anonymous account.
 store.dispatch(login()).then(() => {
     ReactDOM.render(
         <React.StrictMode>
