@@ -21,9 +21,11 @@ export default function Play() {
         </label>)
     }
 
+    console.log('round data', round);
+
     return (<div>
         <h1>{name}</h1>
-        <h2><span>{round.phase}</span> {Math.floor(round.round / 2) + 1}</h2>
+        <h2><span>{round.type}</span> <span>{Math.floor(round.number / 2) + 1}</span></h2>
         <form>
             {round.players.map(renderPlayer)}
         </form>
