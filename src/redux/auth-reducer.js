@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux'
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -6,7 +5,7 @@ import {
     UPDATE_PROFILE_REQUEST,
     UPDATE_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAILURE,
-} from './actions.js';
+} from './auth-actions.js';
 
 import {
     AUTH_REQUEST_PENDING,
@@ -14,7 +13,7 @@ import {
     AUTH_REQUEST_FAILURE    
 } from '../constants.js'
 
-const auth = (state = {
+export default (state = {
     displayName: 'unnamed player',
     message: ''
 }, action) => {
@@ -26,7 +25,7 @@ const auth = (state = {
                 message: action.message
             });
         case LOGIN_FAILURE:
-        case UPDATE_PROFILE_REQUEST:
+        case UPDATE_PROFILE_FAILURE:
             return Object.assign({}, state, {
                 reqStatus: AUTH_REQUEST_FAILURE,
                 message: action.message
@@ -49,4 +48,3 @@ const auth = (state = {
     }
 }
 
-export default combineReducers({ auth });
