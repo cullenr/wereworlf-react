@@ -21,6 +21,7 @@ const onCollectionWrite = (db, dispatch, path, actionType) => db
         if (change.type === 'added' || change.type === 'updated') {
             dispatch({
                 type: actionType, 
+                received: Date.now(),
                 id: change.doc.id,
                 doc: change.doc.data()
             })
@@ -44,6 +45,7 @@ const onPrivateCollectionWrite = (db, dispatch, path, actionType, uid) => db
         if (change.type === 'added' || change.type === 'updated') {
             dispatch({
                 type: actionType, 
+                received: Date.now(),
                 id: change.doc.id,
                 doc: change.doc.data()
             })

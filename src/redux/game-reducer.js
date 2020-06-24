@@ -19,7 +19,7 @@ const initialState = {
     message: '', // TODO : remove this in favour of another messages store
     name: '',
     host: '',
-    gameId: '', // TODO : remove?
+    gameId: '', // TODO : remove, this is a param so we can rejoin/refresh
     round: {
         players: [],
         ghosts: [],
@@ -28,6 +28,7 @@ const initialState = {
     },
     players: {},
     votes: {},
+    roles: {},
     messages: []
 };
 export default (state, action) => {
@@ -77,7 +78,7 @@ export default (state, action) => {
                         id: action.id,
                         ...action.doc
                     }
-                ]
+                ].sort((a, b) => a.received - b.received)
             };
         case HIDE_MESSAGE :
             return {
