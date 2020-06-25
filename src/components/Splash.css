@@ -1,0 +1,85 @@
+.splash {
+    position: initial;
+    font-family: 'Major Mono Display', monospace;
+    margin: 1.5rem 0 0 0;
+    font-size: var(--splash-size, 20rem);
+    filter: url(#metaball);
+    color: var(--ww-crimson, crimson);
+}
+
+.splash::before, .splash::after {
+    position: absolute;
+    transform: translate(-50%, -55%);
+    opacity: 0;
+    content: " ";
+    animation-delay: 1s;
+    animation-duration: var(--splash-duration, 4s);
+    animation-timing-function: ease;
+    /*
+    this is handy for debugging
+    animation-iteration-count:infinite;
+     */
+}
+
+.splash::before {
+    animation-name: anim-a;
+}
+.splash::after {
+    animation-name: anim-b;
+}
+/**
+ *  These vaules are all based arouund adding or subtracting 4.9 from multiples
+ *  of ten with exception of the first 0%. 
+ *  0 + 4.9 = 4.9, 
+ *  10 - 4.9 = 5.1,
+ *  10 + 4.9 = 14.9
+ *  20 - 4.9 = 15.1
+ *  20 + 4.9 = 24.9
+ *  30 - 4.9 = 25.1
+ *  ...
+ */
+@keyframes anim-a {
+    0%    { content: 'W'; opacity: 0; }
+    4.9%  { content: 'W'; opacity: 1; }
+    5.1%  { content: 'W'; opacity: 1; }
+    14.9% { content: 'W'; opacity: 0; }
+    15.1% { content: 'R'; opacity: 0; }
+    24.9% { content: 'R'; opacity: 1; }
+    25.1% { content: 'R'; opacity: 1; }
+    34.9% { content: 'R'; opacity: 0; }
+    35.1% { content: 'W'; opacity: 0; }
+    44.9% { content: 'W'; opacity: 1; }
+    45.1% { content: 'W'; opacity: 1; }
+    54.9% { content: 'W'; opacity: 0; }
+    55.1% { content: 'l'; opacity: 0; }
+    64.9% { content: 'l'; opacity: 1; }
+    65.1% { content: 'l'; opacity: 1; }
+    74.9% { content: 'l'; opacity: 0; }
+    75.1% { content: '+'; opacity: 0; }
+    84.9% { content: '+'; opacity: 1; }
+    85.1% { content: '+'; opacity: 1; }
+    94.9% { content: '+'; opacity: 0; }
+    95.1% { content: 'W'; opacity: 0; }
+}
+@keyframes anim-b {
+    4.9% { content: '+'; opacity: 0; }
+    5.1% { content: 'e'; opacity: 0; }
+    14.9% { content: 'e'; opacity: 1; }
+    15.1% { content: 'e'; opacity: 1; }
+    24.9% { content: 'e'; opacity: 0; }
+    25.1% { content: 'e'; opacity: 0; }
+    34.9% { content: 'e'; opacity: 1; }
+    35.1% { content: 'e'; opacity: 1; }
+    44.9% { content: 'e'; opacity: 0; }
+    45.1% { content: 'o'; opacity: 0; }
+    54.9% { content: 'o'; opacity: 1; }
+    55.1% { content: 'o'; opacity: 1; }
+    64.9% { content: 'o'; opacity: 0; }
+    65.1% { content: 'f'; opacity: 0; }
+    74.9% { content: 'f'; opacity: 1; }
+    75.1% { content: 'f'; opacity: 1; }
+    84.9% { content: 'f'; opacity: 0; }
+    85.1% { content: '+'; opacity: 0; }
+    94.9% { content: '+'; opacity: 1; }
+    95.1% { content: '+'; opacity: 1; }
+}

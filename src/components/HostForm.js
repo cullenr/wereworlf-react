@@ -30,8 +30,9 @@ export default function HostForm() {
         <form onSubmit={handleSubmit}>
             <h3>Name the Game</h3>
             <fieldset disabled={hostReqState === ASYNC_STATE_PENDING}>
-                <input type='text' placeholder="game name" name='gameName' />
-                <input type='submit' />
+                <input type='text' name='gameName'
+                        minlength='3' maxlength='32' required/>
+                <input type='submit' value='GO' />
             </fieldset>
             { hostReqState === ASYNC_STATE_FAILURE && 
                     <p>{message}</p> }

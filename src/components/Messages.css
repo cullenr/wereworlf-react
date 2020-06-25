@@ -1,0 +1,46 @@
+
+.messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+}
+.messages:empty {
+    margin: 0;
+    padding: 0;
+    animation: hide-messages 1.5s forwards;
+}
+
+.messages:not(empty) {
+    visibility: visible;
+    animation: show-messages 1.5s forwards;
+}
+
+.messages li {
+    list-style-type: none;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: white;
+    width: 18rem;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    border-radius: 0.6rem;
+}
+
+.messages li h3 {
+    margin-top: 0;
+}
+
+@keyframes show-messages {
+    from { opacity: 0; visibility: hidden; }
+    to   { opacity: 1; visibility: visible;}
+}
+@keyframes hide-messages {
+    from { opacity: 1; visibility: visible;}
+    to   { opacity: 0; visibility: hidden; }
+}

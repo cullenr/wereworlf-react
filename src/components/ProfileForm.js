@@ -18,10 +18,11 @@ export default function ProfileForm() {
         }
     };
     return (<form  onSubmit={handleSubmit}>
-        <h3>Name yourself</h3>
+        <h3>Name yourself, {auth.displayName}</h3>
         <fieldset disabled={auth.reqStatus === AUTH_REQUEST_PENDING}>
-            <input type='text' placeholder={auth.displayName} name='displayName' />
-            <input type='submit' />
+            <input type='text' name='displayName' 
+                   minlength='2' maxlength='16' required/>
+            <input type='submit' value='GO' />
         </fieldset>
         { auth.reqStatus === AUTH_REQUEST_FAILURE && <p>{auth.message}</p> }
     </form>);

@@ -1,0 +1,27 @@
+.landing ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.landing li a {
+    text-decoration: none;
+    color: var(--accent, crimson);
+}
+
+a::before {
+    content: '·'; /* interpunct */
+    opacity: 0;
+}
+a::after {
+    content: '·';
+    opacity: 0;
+}
+a.active::before {
+    opacity: 1;
+}
+a.active::after {
+    opacity: 1;
+}
+

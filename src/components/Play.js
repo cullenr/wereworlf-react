@@ -1,3 +1,4 @@
+import './Play.css'
 import * as firebase from "firebase/app"
 import React, { useState } from 'react'
 
@@ -25,20 +26,30 @@ export default function Play() {
         setDisabled(false);
     };
 
-    const renderPlayer = playerId => {
-        return (<label key={playerId}>
+
+    const renderPlayer = (playerId, renderRadio) => {
+        return (<li>
+        <input id={playerId} type='radio' name='players'
+            value={playerId} onClick={handleClick} />
+        <label key={playerId} for={playerId}>
             <Player uid={playerId} showRole={uid !== playerId}/>
-            { round.players.includes(uid) && 
-                <input type='radio' name='players' 
-                    value={playerId} onClick={handleClick} /> }
-        </label>)
+        </label> 
+        </li>)
     }
 
-    return (<div>
-        <h1>{gameName}</h1>
-        <h2><span>{round.type}</span> <span>{Math.floor(round.number / 2) + 1}</span></h2>
-        <form disabled={disabled}>
-            {round.players.map(renderPlayer)}
+    return (<div className='game'>
+        <h1></h1>
+        <h3>
+            <span>{gameName} - </span>
+            <span>{round.type} </span>
+            <span>{Math.floor(round.number / 2) + 1}</span>
+        </h3>
+        <form>
+            <fieldset disabled={disabled}>
+                <ul>
+                    {round.players.map(renderPlayer)}
+                </ul>
+            </fieldset>
         </form>
     </div>
     );

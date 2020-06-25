@@ -24,7 +24,7 @@ const initialState = {
         players: [],
         ghosts: [],
         round: 0,
-        phase: 'night'
+        phase: ''
     },
     players: {},
     votes: {},

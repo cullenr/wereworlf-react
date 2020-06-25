@@ -16,6 +16,7 @@ import { Provider } from 'react-redux'
 import { login } from './redux/auth-actions.js'
 import rootReducer from './redux/root.js'
 
+import { BrowserRouter as Router, } from "react-router-dom"
 import { firebaseConfig } from './constants.js' 
 
 firebase.initializeApp(firebaseConfig);
@@ -35,7 +36,9 @@ store.dispatch(login()).then(() => {
     ReactDOM.render(
         <React.StrictMode>
             <Provider store={store}>
-                <App />
+                <Router>
+                    <App />
+                </Router>
             </Provider>
         </React.StrictMode>,
         document.getElementById('root')

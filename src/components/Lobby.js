@@ -1,3 +1,4 @@
+import './Lobby.css'
 import * as firebase from "firebase/app";
 
 import React, { useState } from 'react'
@@ -32,9 +33,9 @@ export default function Lobby() {
     }
 
     return (
-        <div>
-            <h1>{name}</h1>
-            <h2>waiting in the lobby...</h2>
+        <div className='lobby'>
+            <h2>{name}</h2>
+            <h3>waiting in the lobby...</h3>
             <ul>
                 {Object.values(players).sort().map(renderPlayer)}
             </ul>

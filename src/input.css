@@ -1,0 +1,52 @@
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+form:invalid input[type=submit]{
+    border-color: #fff;
+    opacity: 0.3;
+}
+
+input[type=submit] {
+    padding: 0.5rem 1rem;
+    margin-top: 1.5rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    color: dimgray;
+    background-color: white;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked + label{
+    color: var(--accent);
+}
+
+button {
+    padding: 0.5rem 1rem;
+    margin-top: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    color: dimgray;
+    background-color: white;
+    border: none;
+    border-bottom: solid silver;
+}
+
+label {
+    display: block;
+}
+
+fieldset {
+    border: none;
+}
+

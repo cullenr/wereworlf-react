@@ -8,13 +8,14 @@ import {
 } from './auth-actions.js';
 
 import {
+    DEFAULT_PLAYER_NAME,
     AUTH_REQUEST_PENDING,
     AUTH_REQUEST_SUCCESS,
     AUTH_REQUEST_FAILURE    
 } from '../constants.js'
 
 export default (state = {
-    displayName: 'unnamed player',
+    displayName: DEFAULT_PLAYER_NAME,
     message: ''
 }, action) => {
     switch(action.type) {

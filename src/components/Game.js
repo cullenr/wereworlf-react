@@ -47,7 +47,7 @@ export default function Game() {
         }
     }, [joinReqState, dispatch, gameId, history, round, url]);
 
-    return (<div>
+    return (
         <Switch>
             <Route path={`${path}/play`}>
                 <Play />
@@ -63,6 +63,5 @@ export default function Game() {
                 <h3>Connecting to game...</h3>
             </Route>
         </Switch> 
-    </div>
     );
 }

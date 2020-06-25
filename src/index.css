@@ -1,3 +1,17 @@
+@import-normalize;
+
+:root {
+    --night-bg: #051414;
+    --day-bg: #fefefe;
+
+    --night-accent: #14DBB3;
+    --day-accent: #DC143C;
+
+    --accent: #DC143C;
+}
+
+@import './input.css';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +24,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
 }

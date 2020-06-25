@@ -11,8 +11,6 @@ export default function Player(props) {
     const roles         = useSelector(state => state.game.roles);
     const getName = id => players[id]?.name;
 
-console.log('roles', roles)
-
     return (
         <span>
             {uid === props.uid && (<span>[you] </span>)}

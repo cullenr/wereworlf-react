@@ -1,3 +1,4 @@
+import './Messages.css'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { HIDE_MESSAGE } from '../redux/game-actions.js'
@@ -58,16 +59,9 @@ export default function Messages() {
     const renderMessage = message => {
         return (<li key={message.id}>
             {renderContent(message)}
-            <button onClick={() => handleClick(message.id)}>DISMISS</button>
+            <button onClick={() => handleClick(message.id)}>OK</button>
         </li>)
     }
 
-    return (
-        <div>
-            <h3>Messages</h3>
-            <ul>
-                {Object.values(messages).map(renderMessage)}
-            </ul>
-        </div>
-    );
+    return (<ul className='messages'>{Object.values(messages).map(renderMessage)}</ul>);
 }

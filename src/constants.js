@@ -8,6 +8,8 @@ export const ASYNC_STATE_PENDING = 'ASYNC_STATE_PENDING';
 export const ASYNC_STATE_SUCCESS = 'ASYNC_STATE_SUCCESS';
 export const ASYNC_STATE_FAILURE = 'ASYNC_STATE_FAILURE';
 
+export const DEFAULT_PLAYER_NAME = 'unnamed player';
+
 export const firebaseConfig = window.location.hostname === 'localhost'
     ? {
         apiKey: 'AIzaSyD_2RZs_a4t_z00JUrO5YatFd_HFv12GI4',
