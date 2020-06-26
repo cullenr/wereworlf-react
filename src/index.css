@@ -1,4 +1,3 @@
-@import-normalize;
 
 :root {
     --night-bg: #051414;
@@ -8,6 +7,10 @@
     --day-accent: #DC143C;
 
     --accent: #DC143C;
+
+    --input: #aaa;
+    --text: #bbb;
+    --text-heavy: dimgray;
 }
 
 @import './input.css';
@@ -19,12 +22,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-#root {
-}

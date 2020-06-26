@@ -31,12 +31,12 @@ export default function Messages() {
                 </div>);
             case 'seer-success' : 
                 return (<div>
-                    <h3>You identified a killer</h3>
+                    <h3>A killer is identified</h3>
                     <Player uid={message.content}/>
                 </div>);
             case 'seer-failure' : 
                 return (<div>
-                    <h3>You failed to find a killer </h3>
+                    <h3>A killer was not identified</h3>
                 </div>);
             case 'eliminations' : 
                 return (<div>

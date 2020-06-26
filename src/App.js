@@ -28,7 +28,8 @@ export default function App() {
     }
     console.log(phase)
 
-    return (<main className={phase}>
+    return (
+    <main className={phase}>
         <header className={headerClass}>
             <h1>WeReWolf</h1>
         </header>
