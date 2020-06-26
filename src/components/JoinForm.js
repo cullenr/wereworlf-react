@@ -20,7 +20,7 @@ export default function JoinForm() {
         <h3>Enter a Game ID</h3>
         <fieldset>
             <input type='text' name='gameId' 
-                   minlength='20' maxlength='20' required/>
+                   minLength='20' maxLength='20' required/>
             <input type='submit' value='GO'/>
         </fieldset>
     </form>);

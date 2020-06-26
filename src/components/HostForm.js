@@ -31,7 +31,7 @@ export default function HostForm() {
             <h3>Name the Game</h3>
             <fieldset disabled={hostReqState === ASYNC_STATE_PENDING}>
                 <input type='text' name='gameName'
-                        minlength='3' maxlength='32' required/>
+                        minLength='3' maxLength='32' required/>
                 <input type='submit' value='GO' />
             </fieldset>
             { hostReqState === ASYNC_STATE_FAILURE && 
