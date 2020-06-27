@@ -23,7 +23,7 @@ export default function Game() {
     const history       = useHistory();
     const joinReqState  = useSelector(state => state.game.joinReqState);
     const message       = useSelector(state => state.game.message);
-    const round         = useSelector(state => state.game.round.round);
+    const round         = useSelector(state => state.game.round.number);
     const dispatch      = useDispatch();
 
     useEffect(() => {
