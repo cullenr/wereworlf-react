@@ -19,7 +19,7 @@ export default function JoinForm() {
     return (<form onSubmit={handleSubmit}>
         <h3>Enter a Game ID</h3>
         <fieldset>
-            <input type='text' name='gameId' 
+            <input type='text' name='gameId' autocomplete='off'
                    minLength='20' maxLength='20' required/>
             <input type='submit' value='GO'/>
         </fieldset>
