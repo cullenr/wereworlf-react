@@ -53,7 +53,14 @@ export default function Messages() {
                     </p>))}
                 </div>);
             case 'role-assigned' : 
-                return (<h3> You are a {message.content.toLowerCase()} </h3>);
+                return (<h3> You are a 
+                    <span className='role'> {message.content.toLowerCase()}</span>
+                    </h3>);
+            default : 
+                return (<div>
+                    <h3>Attention</h3>
+                    <p>{message.content}</p>
+                </div>)
         }
     }
     const renderMessage = message => {
