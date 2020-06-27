@@ -20,7 +20,7 @@ export default function ProfileForm() {
     return (<form  onSubmit={handleSubmit}>
         <h3>Name yourself, {auth.displayName}</h3>
         <fieldset disabled={auth.reqStatus === AUTH_REQUEST_PENDING}>
-            <input type='text' name='displayName' autocomplete='off'
+            <input type='text' name='displayName' autoComplete='off'
                    minLength='2' maxLength='16' required/>
             <input type='submit' value='GO' />
         </fieldset>

@@ -30,7 +30,7 @@ export default function HostForm() {
         <form onSubmit={handleSubmit}>
             <h3>Name the Game</h3>
             <fieldset disabled={hostReqState === ASYNC_STATE_PENDING}>
-                <input type='text' name='gameName' autocomplete='off'
+                <input type='text' name='gameName' autoComplete='off'
                         minLength='3' maxLength='32' required/>
                 <input type='submit' value='GO' />
             </fieldset>
