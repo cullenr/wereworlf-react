@@ -42,14 +42,14 @@ export default function Messages() {
                 return (<div>
                     <h3>Death in the Night!</h3> 
                     {message.content.map(e => (<p>
-                        <Player uid={e} /> was killed
+                        <Player key={e} uid={e} /> was killed
                     </p>))}
                 </div>);
             case 'resurections' : 
                 return (<div>
                     <h3>Miraculous healings!</h3> 
                     {message.content.map(e => (<p>
-                        <Player uid={e} /> was saved
+                        <Player key={e} uid={e} /> was saved
                     </p>))}
                 </div>);
             case 'role-assigned' : 
