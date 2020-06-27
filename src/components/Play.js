@@ -26,11 +26,15 @@ export default function Play() {
         setDisabled(false);
     };
 
+    const isAlive = () => players.includes(uid);
+    const isNominee = (id) => votes[uid]?.nominee === id;
 
     const renderPlayer = (playerId, renderRadio) => {
         return (<li>
-        <input id={playerId} type='radio' name='players'
-            value={playerId} onClick={handleClick} />
+        { isAlive &&
+            <input id={playerId} type='radio' 
+                value={playerId} onClick={handleClick} checked={isNominee(playerId)} /> 
+        }
         <label key={playerId} for={playerId}>
             <Player uid={playerId} showRole={uid !== playerId}/>
         </label> 

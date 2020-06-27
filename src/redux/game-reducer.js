@@ -21,6 +21,7 @@ const initialState = {
     host: '',
     gameId: '', // TODO : remove, this is a param so we can rejoin/refresh
     round: {
+        id: 'r-', // NOTE ids are lexographically compared in the action dispatcher. The document ids follow the convention of r + the round number. '-' < '0'.
         players: [],
         ghosts: [],
         round: 0,
@@ -53,7 +54,7 @@ export default (state, action) => {
         case ADD_ROUND :
             return {
                 ...state,
-                round: action.doc,
+                round: { ...action.doc, id: action.id },
                 votes: {} // empty the votes when a round starts
             };
         case ADD_PLAYER : {
@@ -63,6 +64,25 @@ export default (state, action) => {
             return { ...state, players };
         }
         case ADD_VOTE : {
+            // private collections can contain a roundId that specifies which
+            // round they are relevant for - we can prevent data for old rounds
+            // being dispatched to the reducer here. This means the results of
+            // old rounds are not shown to the user as messages and things like
+            // old votes dont muddy the state of the ui.
+            //
+            // Some data may not contain a round Id such as the initial messages
+            // notifying the role of the player, these should always be
+            // dispatched.
+
+            // filtering is done here in the reducer instead of in the action
+            // that dispatches the update as these actions come from long lived
+            // connections to the datastore. This means that a reference to
+            // getState would need to be passed to the callback that is
+            // registered against the firebase store to get the current round.
+            if(action.doc.roundId < state.round.id) {
+                return state;
+            } 
+
             const votes = Object.assign({}, state.votes, {
                 [action.id]: action.doc
             }); 
