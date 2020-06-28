@@ -3,7 +3,8 @@
     --night-bg: #051414;
     --day-bg: #fefefe;
 
-    --night-accent: #14DBB3;
+    /* --night-accent: #14DBB3; This is the compliment of DC143C */
+    --night-accent: #008A6E;
     --day-accent: #DC143C;
 
     --accent: #DC143C;
