@@ -1,6 +1,6 @@
 import './Play.css'
 import * as firebase from "firebase/app"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,9 +13,6 @@ export default function Play() {
     const uid           = useSelector(state => state.auth.uid);
     const round         = useSelector(state => state.game.round);
     const gameName      = useSelector(state => state.game.name);
-    const votes         = useSelector(state => state.game.votes);
-    const players       = useSelector(state => state.game.players);
-
     const dispatch      = useDispatch();
     const handleClick   = async (e) => {
         const endpoint = firebase.functions().httpsCallable('castVote');
@@ -25,21 +22,26 @@ export default function Play() {
         await endpoint({ gameId, nominee: e.target.value });
         setDisabled(false);
     };
-
-    const isAlive = () => players.includes(uid);
-    const isNominee = (id) => votes[uid]?.nominee === id;
-
-    const renderPlayer = (playerId, renderRadio) => {
-        return (<li>
-        { isAlive &&
-            <input id={playerId} type='radio' 
-                value={playerId} onClick={handleClick} checked={isNominee(playerId)} /> 
-        }
-        <label key={playerId} for={playerId}>
-            <Player uid={playerId} showRole={uid !== playerId}/>
-        </label> 
+    const isAlive = () => round.players.includes(uid);
+    const renderPlayerInput = (playerId) => {
+        return (<li key={playerId}>
+            <input id={playerId} type='radio' name='players'
+                value={playerId} onClick={handleClick}  /> 
+            <label  htmlFor={playerId}>
+                <Player uid={playerId} showRole={uid !== playerId}/>
+            </label> 
         </li>)
     }
+    const renderPlayer = (playerId) => {
+        return (<li key={playerId}>
+            <Player uid={playerId} showRole={true}/>
+        </li>)
+    }
+    useEffect(() => {
+        const radios = document.querySelectorAll('input[type=radio]');
+        radios.forEach(e => e.checked = false);
+
+    }, [round])
 
     return (<div className='game'>
         <h1></h1>
@@ -51,7 +53,9 @@ export default function Play() {
         <form>
             <fieldset disabled={disabled}>
                 <ul>
-                    {round.players.map(renderPlayer)}
+                    {isAlive() 
+                        ? round.players.map(renderPlayerInput)
+                        : round.players.map(renderPlayer)}
                 </ul>
             </fieldset>
         </form>
