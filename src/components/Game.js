@@ -34,7 +34,7 @@ export default function Game() {
             case ASYNC_STATE_PENDING :
                 break;
             case ASYNC_STATE_SUCCESS :
-                if(round === 0) {
+                if(round < 0) {
                     history.push(`${url}/lobby`);
                 } else {
                     history.push(`${url}/play`);

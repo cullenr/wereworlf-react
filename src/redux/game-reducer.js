@@ -24,7 +24,7 @@ const initialState = {
         id: 'r-', // NOTE ids are lexographically compared in the action dispatcher. The document ids follow the convention of r + the round number. '-' < '0'.
         players: [],
         ghosts: [],
-        round: 0,
+        number: -1,
         phase: ''
     },
     players: {},
